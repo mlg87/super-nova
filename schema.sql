@@ -72,3 +72,5 @@ CREATE TABLE reservations (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
   client_id INT REFERENCES clients(_id) NOT NULL
 );
+
+-- make reservation group table
