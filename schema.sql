@@ -39,7 +39,7 @@ CREATE TABLE users (
   _id SERIAL PRIMARY KEY,
   username VARCHAR(100) NOT NULL UNIQUE,
   password CHAR(60) NOT NULL,
-  type VARCHAR(30) NOT NULL,
+  -- add roles in the future
   created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
   client_id INT REFERENCES clients(_id) NOT NULL
@@ -50,6 +50,8 @@ CREATE TABLE customers (
   name VARCHAR(100) NOT NULL,
   user_id INT REFERENCES users(_id),
   email VARCHAR(50) UNIQUE,
+  -- student, alumni, etc.
+  type VARCHAR(30) NOT NULL,
   student_id VARCHAR(50) UNIQUE,
   phone_number CHAR(10) UNIQUE CHECK(phone_number ~ '[0-9]{10}'),
   address ADDRESS,
