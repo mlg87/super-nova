@@ -64,7 +64,8 @@ CREATE TABLE customers (
 CREATE TABLE reservations (
   _id SERIAL PRIMARY KEY,
   inventory_id INT REFERENCES inventory(_id) NOT NULL,
-  customer_id INT REFERENCES users(_id) NOT NULL,
+  customer_id INT REFERENCES customers(_id) NOT NULL,
+  user_id INT REFERENCES users(_id) NOT NULL,
   start_timestamp TIMESTAMPTZ NOT NULL,
   end_timestamp TIMESTAMPTZ NOT NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
